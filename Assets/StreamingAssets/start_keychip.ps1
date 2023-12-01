@@ -1,1 +1,1 @@
-Read-Host "Loading"
+Start-ScheduledTask -TaskName BootALLSRuntime

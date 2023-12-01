@@ -1,2 +1,2 @@
-Model=ALLS HX
+Model=ALLS MX2
 STEP 1=起動しています
