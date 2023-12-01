@@ -4,8 +4,11 @@
 ARS NOVA Bootloader for replacement OS for ALLS
 
 ## SOS Keychip Interaction
-Designed to interface with Savior Of Song Keychip 2.18+<br/>
-`--displayState "C:\SEGA\system\preboot\preboot_Data\StreamingAssets\state.txt"`
+Designed to interface with Savior Of Song Keychip 2.18+
+1. Import the keychip start scheduled task from `/Support`
+2. Copy `Launch.vbs` to `C:\`
+3. Update your init_start.ps1 to use displayState
+  * `--displayState "C:\SEGA\system\preboot\preboot_Data\StreamingAssets\state.txt"`
 
 ## Post-Build Unity Splash Removal
 1. From the top search for `SEGA`, go to first `?`, and chnage hex to `00`
