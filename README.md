@@ -10,5 +10,6 @@ Designed to interface with Savior Of Song Keychip 2.18+<br/>
 ## Post-Build Unity Splash Removal
 1. From the top search for `SEGA`, go to first `?`, and chnage hex to `00`
  ![image](https://github.com/UiharuKazari2008/ARS-NOVA-Bootloader/assets/15165770/342ce3d7-0d9f-41af-9b9b-c4e7ea874ccd)
-2. Search for `2022.3.13f1` and select back 12h in length and set the first hex value to `01`
- ![image](https://github.com/UiharuKazari2008/ARS-NOVA-Bootloader/assets/15165770/6d723514-669b-4640-a801-54df0bd3f8c3)
+2. Search for `2022.3.13f1` and select back 14h in length and set the first hex value to `01`
+ ![image](https://github.com/UiharuKazari2008/ARS-NOVA-Bootloader/assets/15165770/e2508f91-fca3-47ff-81f0-01366efcb571)
+
