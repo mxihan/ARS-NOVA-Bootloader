@@ -1,0 +1,2 @@
+Model=ALLS HX
+STEP 1=起動しています
