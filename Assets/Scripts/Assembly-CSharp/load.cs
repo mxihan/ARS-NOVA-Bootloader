@@ -14,6 +14,10 @@ public class load : MonoBehaviour
 
 	public Text modelText;
 
+	public Color warningColor;
+	public string warningTrigger;
+	public Color defaultColor;
+
 	private string configFilePath;
 	private string statusFilePath;
 	private string installFilePath;
@@ -98,6 +102,13 @@ public class load : MonoBehaviour
 				if (lines.Length > 0)
 				{
 					string lastLine = lines[lines.Length - 1];
+					if (lastLine.Contains(warningTrigger))
+                    {
+						installText.color = warningColor;
+					} else
+                    {
+						installText.color = defaultColor;
+					}
 					installText.text = lastLine;
 				}
 			}

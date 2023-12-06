@@ -618,6 +618,9 @@ MonoBehaviour:
   installText: {fileID: 1740158568}
   stepText: {fileID: 34}
   modelText: {fileID: 47}
+  warningColor: {r: 1, g: 0.45709425, b: 0, a: 1}
+  warningTrigger: '!'
+  defaultColor: {r: 0, g: 0, b: 0, a: 1}
   ContinueRunning: 1
   errorSceneName: error
 --- !u!114 &36
@@ -1014,7 +1017,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -355.2}
+  m_AnchoredPosition: {x: 0, y: -426}
   m_SizeDelta: {x: 1423.8579, y: 63.5874}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1740158568
