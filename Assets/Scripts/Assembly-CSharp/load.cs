@@ -8,14 +8,15 @@ public class load : MonoBehaviour
 {
 	public Text displayText;
 
+	public Text installText;
+
 	public Text stepText;
 
 	public Text modelText;
 
 	private string configFilePath;
 	private string statusFilePath;
-
-	public GameObject boot;
+	private string installFilePath;
 
 	public bool ContinueRunning = true;
 	public string errorSceneName = "error";
@@ -24,12 +25,12 @@ public class load : MonoBehaviour
 	{
 		configFilePath = Path.Combine(Application.streamingAssetsPath, "config.txt");
 		statusFilePath = Path.Combine(Application.streamingAssetsPath, "state.txt");
-		string[] array = File.ReadAllLines(configFilePath);
-		DisplayText();
+		installFilePath = Path.Combine(Application.streamingAssetsPath, "install.txt");
+		initText();
 		StartCoroutine(UpdateDisplay());
 	}
 
-	private void DisplayText()
+	private void initText()
 	{
 		string[] array = File.ReadAllLines(statusFilePath);
 		string[] array2 = array;
@@ -49,6 +50,7 @@ public class load : MonoBehaviour
 				string text4 = array4[1];
 				displayText.text = text4;
 				stepText.text = text3;
+				installText.text = "";
 			}
 		}
 	}
@@ -67,16 +69,11 @@ public class load : MonoBehaviour
 					{
 						if (line.StartsWith("STEP "))
 						{
-							string[] array4 = line.Split('=');
-							string text3 = array4[0];
-							string text4 = array4[1];
-							displayText.text = text4;
-							stepText.text = text3;
-							bool result = true;
-							if (!(array4.Length > 2 && bool.TryParse(array4[2], out result) && result == true))
-							{
-								boot.SetActive(true);
-							}
+							string[] array5 = line.Split('=');
+							string text1 = array5[0];
+							string text2 = array5[1];
+							displayText.text = text2;
+							stepText.text = text1;
 						}
 						else if (line.StartsWith("error"))
 						{
@@ -93,8 +90,23 @@ public class load : MonoBehaviour
 			{
 				Debug.LogError("File Locked");
 			}
+			// Use a StreamReader to read the file
+			try
+			{
+				string[] lines = File.ReadAllLines(installFilePath);
 
-			yield return new WaitForSeconds(0.125f); // Wait for one second before reading the file again
+				if (lines.Length > 0)
+				{
+					string lastLine = lines[lines.Length - 1];
+					installText.text = lastLine;
+				}
+			}
+			catch
+			{
+				Debug.LogError("File Locked");
+			}
+
+			yield return new WaitForSeconds(0.001f); // Wait for one second before reading the file again
 		}
 	}
 	private void LoadErrorScene()

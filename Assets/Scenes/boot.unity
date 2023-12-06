@@ -378,6 +378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   batchFileName: start_keychip.ps1
   transition: 1
+  quit: 0
   showWindow: 0
 --- !u!114 &39
 MonoBehaviour:
@@ -623,6 +624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 1}
+  SkipBoot: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
