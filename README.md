@@ -10,6 +10,12 @@ Designed to interface with Savior Of Song Keychip 2.18+
 3. Update your init_start.ps1 to use displayState
   * `--displayState "C:\SEGA\system\preboot\preboot_Data\StreamingAssets\state.txt"`
 
+## Skip BIOS Boot Screen
+* Enable `Skip Boot` in `Scenes/boot/Canvas/Video Player`
+
+![image](https://github.com/UiharuKazari2008/ARS-NOVA-Bootloader/assets/15165770/e58f5d85-805a-4b32-adf6-1452dd4a3364)
+
+
 ## Post-Build Unity Splash Removal
 1. From the top search for `SEGA`, go to first `?`, and chnage hex to `00`
  ![image](https://github.com/UiharuKazari2008/ARS-NOVA-Bootloader/assets/15165770/342ce3d7-0d9f-41af-9b9b-c4e7ea874ccd)
