@@ -1,4 +1,4 @@
-<img src="https://github.com/UiharuKazari2008/ARS-NOVA-Bootloader/blob/main/Assets/Texture2D/icon.png" height="100px"/>
+<img src="https://github.com/UiharuKazari2008/ARS-NOVA-Bootloader/assets/15165770/70d0b1c4-6200-4592-811f-798e906376bc" height=350px/>
 
 # ARS NOVA Bootloader
 ARS NOVA Bootloader preboot for ALLS NOVA OS for ALLS Hardware
