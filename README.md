@@ -1,14 +1,16 @@
-<img src="https://github.com/UiharuKazari2008/ARS-NOVA-Bootloader/blob/main/Assets/Texture2D/icon.png"/>
+<img src="https://github.com/UiharuKazari2008/ARS-NOVA-Bootloader/blob/main/Assets/Texture2D/icon.png" height="100px"/>
 
-# ARS-NOVA-Bootloader
-ARS NOVA Bootloader for replacement OS for ALLS
+# ARS NOVA Bootloader
+ARS NOVA Bootloader preboot for ALLS NOVA OS for ALLS Hardware
 
 ## SOS Keychip Interaction
 Designed to interface with Savior Of Song Keychip 2.18+
 1. Import the keychip start scheduled task from `/Support`
 2. Copy `Launch.vbs` to `C:\`
-3. Update your init_start.ps1 to use displayState
+3. You should have a `init_start.ps1` that starts the keychip as Administrator
+4. Update your init_start.ps1 to use displayState
   * `--displayState "C:\SEGA\system\preboot\preboot_Data\StreamingAssets\state.txt"`
+
 
 ## Skip BIOS Boot Screen
 * Enable `Skip Boot` in `Scenes/boot/Canvas/Video Player`
