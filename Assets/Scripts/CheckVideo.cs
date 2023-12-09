@@ -10,6 +10,7 @@ public class CheckVideo : MonoBehaviour
     private VideoPlayer videoPlayer;
     public GameObject transition;
     public bool SkipBoot;
+    public string fileName = "config.txt";
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,19 @@ public class CheckVideo : MonoBehaviour
         Cursor.visible = false;
         Reset();
         videoPlayer = GetComponent<VideoPlayer>();
+        string path = Path.Combine(Application.streamingAssetsPath, fileName);
+        if (File.Exists(path))
+        {
+            string[] array = File.ReadAllLines(path);
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i].Contains("noBIOS=true"))
+                {
+                    transition.SetActive(true);
+                    break;
+                }
+            }
+        }
         if (SkipBoot) {
             transition.SetActive(true);
         } else {

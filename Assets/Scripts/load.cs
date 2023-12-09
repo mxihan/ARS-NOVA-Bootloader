@@ -25,6 +25,8 @@ public class load : MonoBehaviour
 	public bool ContinueRunning = true;
 	public string errorSceneName = "error";
 
+	public GameObject coverFrame;
+
 	private void Start()
 	{
 		configFilePath = Path.Combine(Application.streamingAssetsPath, "config.txt");
@@ -78,6 +80,16 @@ public class load : MonoBehaviour
 							string text2 = array5[1];
 							displayText.text = text2;
 							stepText.text = text1;
+							bool result = false;
+							if (array5.Length > 2 && bool.TryParse(array5[2], out result) && result == true)
+							{
+								coverFrame.SetActive(true);
+								Time.timeScale = 0.00125f;
+							} else if (coverFrame.activeSelf == true)
+							{
+								Time.timeScale = 1;
+								coverFrame.SetActive(false);
+							}
 						}
 						else if (line.StartsWith("error"))
 						{
@@ -92,7 +104,6 @@ public class load : MonoBehaviour
 			}
 			catch
 			{
-				Debug.LogError("File Locked");
 			}
 			// Use a StreamReader to read the file
 			try
@@ -114,7 +125,6 @@ public class load : MonoBehaviour
 			}
 			catch
 			{
-				Debug.LogError("File Locked");
 			}
 
 			yield return new WaitForSeconds(0.001f); // Wait for one second before reading the file again

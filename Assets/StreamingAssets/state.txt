@@ -1,2 +1,2 @@
-STEP 1=起動しています= 
+STEP 2=起動しています=false
 error=false

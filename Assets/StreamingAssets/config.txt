@@ -1,2 +1,3 @@
+noBIOS=false
 Model=ALLS MX2
 STEP 1=起動しています
