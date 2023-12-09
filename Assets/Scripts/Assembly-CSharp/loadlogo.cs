@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class loadlogo : MonoBehaviour
 {
 	public Image imageComponent;
+	public string imageFile;
 
 	private void Start()
 	{
@@ -15,7 +16,7 @@ public class loadlogo : MonoBehaviour
 
 	private IEnumerator LoadImage()
 	{
-		string text = Path.Combine(Application.streamingAssetsPath, "logo.png");
+		string text = Path.Combine(Application.streamingAssetsPath, imageFile);
 		if (text.Contains("://") || text.Contains(":///"))
 		{
 			UnityWebRequest www = UnityWebRequestTexture.GetTexture(text);

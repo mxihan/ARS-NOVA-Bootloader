@@ -1,2 +1,0 @@
-STEP 1=起動しています= 
-error=false

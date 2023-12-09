@@ -651,6 +651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imageComponent: {fileID: 42}
+  imageFile: logo.png
 --- !u!114 &38
 MonoBehaviour:
   m_ObjectHideFlags: 0
