@@ -13,9 +13,7 @@ Designed to interface with Savior Of Song Keychip 2.18+
 
 
 ## Skip BIOS Boot Screen
-* Enable `Skip Boot` in `Scenes/boot/Canvas/Video Player`
-
-![image](https://github.com/UiharuKazari2008/ARS-NOVA-Bootloader/assets/15165770/e58f5d85-805a-4b32-adf6-1452dd4a3364)
+* Set `noBIOS=true` in `preboot_Data\StreamingAssets\config.txt`
 
 
 ## Post-Build Unity Splash Removal
