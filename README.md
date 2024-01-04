@@ -13,7 +13,7 @@ Designed to interface with Savior Of Song Keychip 2.18+
 
 
 ## Skip BIOS Boot Screen
-* Set `noBIOS=true` in `preboot_Data\StreamingAssets\config.txt`
+* Fake BIOS has been removed from all future builds
 
 
 ## Post-Build Unity Splash Removal
