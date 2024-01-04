@@ -1,7 +1,7 @@
 <img src="https://github.com/UiharuKazari2008/ARS-NOVA-Bootloader/assets/15165770/70d0b1c4-6200-4592-811f-798e906376bc" height=350px/>
 
-# ARS NOVA Bootloader
-ARS NOVA Bootloader preboot for ALLS NOVA OS for ALLS Hardware
+# ARS NOVA Bootloader for Blue Steel OS
+ARS NOVA Bootloader preboot for ARS NOVA and Blue Steel OS for ALLS Hardware
 
 ## SOS Keychip Interaction
 Designed to interface with Savior Of Song Keychip 2.18+
@@ -22,3 +22,5 @@ Designed to interface with Savior Of Song Keychip 2.18+
 2. Search for `2022.3.13f1` and select back 14h in length and set the first hex value to `01`
  ![image](https://github.com/UiharuKazari2008/ARS-NOVA-Bootloader/assets/15165770/e2508f91-fca3-47ff-81f0-01366efcb571)
 
+## Credits
+* Based on a decompiled version allsimulator, I have no clue who did the decompile or who the orginal developer was if you were and want to be attributed please contact me cause I legit dont know who made the orginal
