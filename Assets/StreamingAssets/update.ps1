@@ -1,9 +1,23 @@
-Start-ScheduledTask -TaskName BootALLSRuntime
+﻿if (Test-Path -Path "C:\SEGA\update\system_update.ps1" -ErrorAction SilentlyContinue) {
+    Start-Transcript -Path S:\system.update.log.txt -Append | Out-Null
+    . C:\SEGA\update\system_update.ps1
+    Sleep -Seconds 5
+    Remove-Item -Path "C:\SEGA\update\*" -Force -Recurse -Confirm:$false -ErrorAction Continue
+    Set-Content -Encoding utf8 -Value "Flush Disk Cache" -Path "C:\SEGA\system\platform_update\preboot_Data\StreamingAssets\install.txt" -ErrorAction SilentlyContinue
+    Write-VolumeCache C -ErrorAction SilentlyContinue
+    Write-VolumeCache S -ErrorAction SilentlyContinue
+    Stop-Transcript -ErrorAction SilentlyContinue
+    Set-Content -Encoding utf8 -Value "Reboot System" -Path "C:\SEGA\system\platform_update\preboot_Data\StreamingAssets\install.txt" -ErrorAction SilentlyContinue
+    Sleep -Seconds 2
+	shutdown /r /f /t 2
+	Sleep -Seconds 10
+}
+Stop-Process -Name preboot -ErrorAction SilentlyContinue
 # SIG # Begin signature block
 # MIIGEgYJKoZIhvcNAQcCoIIGAzCCBf8CAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUQAit5d7zTvs8u6lEjEVP9y7u
-# WQygggOCMIIDfjCCAmagAwIBAgIQJlq0EDKWmKtOwveGVRLWsTANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU/hXWNYnLGDzK463mOPPQjXPe
+# F0OgggOCMIIDfjCCAmagAwIBAgIQJlq0EDKWmKtOwveGVRLWsTANBgkqhkiG9w0B
 # AQUFADBFMUMwQQYDVQQDDDpDb2RlIFNpZ25pbmcgLSBBY2FkZW15IENpdHkgUmVz
 # ZWFyY2ggUC5TLlIuIChmb3IgTWlzc2xlc3MpMB4XDTIzMTIyOTIzMTMzNVoXDTMw
 # MTIyNDA1MDAwMFowRTFDMEEGA1UEAww6Q29kZSBTaWduaW5nIC0gQWNhZGVteSBD
@@ -26,11 +40,11 @@ Start-ScheduledTask -TaskName BootALLSRuntime
 # c2VhcmNoIFAuUy5SLiAoZm9yIE1pc3NsZXNzKQIQJlq0EDKWmKtOwveGVRLWsTAJ
 # BgUrDgMCGgUAoHgwGAYKKwYBBAGCNwIBDDEKMAigAoAAoQKAADAZBgkqhkiG9w0B
 # CQMxDAYKKwYBBAGCNwIBBDAcBgorBgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAj
-# BgkqhkiG9w0BCQQxFgQUHEJbEFQMkFzb3H+NsuO2UvBxJH8wDQYJKoZIhvcNAQEB
-# BQAEggEAVEdCZ/xYqyZs4g8x3q76eSRyXfV6TYbUc3L57YAR0wqxN2qC4XKwRQwg
-# t+E26a0CmJO56RShN896xM1tX3XEC5Or2SZHwdcx9yU6mmXOPjlYogcAC0cOGKA2
-# 6eflOlOe98lim4RdAtla1WJMwb7BRLQq/Py0xUzSny42FMI8ETs5/n2IQyfXxjKb
-# OICRgQha4aSy+3Mc3VrZSzZhkMbgArvvP0xm/jrglEZ5+oYsiLNsGJ5hjspopFVE
-# i//hgrOCJFwTrJ4W+EBxvyP4AMrWz0B7BPGiue0Z42YUx1VuLB8boee8Z7Y0Net5
-# 8u1h2HTu417e93tW6nOx2cvpSLA5Ag==
+# BgkqhkiG9w0BCQQxFgQUDye7ILr5WQPljYA+jqV9UYhJnIkwDQYJKoZIhvcNAQEB
+# BQAEggEATaOsUYiyMwnzzPTM0+WfPg8aGQdC8hlkvxg2+/GR1IolZPkbD0PodLi2
+# jR0UuBOs+NTHe59htS1ww7ja0X/VyC4lVNH/kc4XUpEdTcm+qt/qjnIk317x51nu
+# /I5fSOzaMyPdzlBAnqO95e/0FjOIlQ7tD0W+iAOENdni9eGLQdssFOK2dhq0tN+x
+# uXnZnp0eMVTpPhugHdAnAUT2riWVKe2665DjZGsPs7NN7J96WqOB0gHpzDAZxnTQ
+# IKG8qocNwoiMmIlNr9INi/LHtaHCW/k8IVoKWpYQtQiKaOORr2lkm8Nm8R7CjsD5
+# MUA/HkKl9cQ9lGYQToEYoBzosEd4og==
 # SIG # End signature block

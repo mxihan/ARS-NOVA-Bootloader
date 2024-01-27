@@ -2,12 +2,9 @@ using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class bootgame : MonoBehaviour
+public class startHandle : MonoBehaviour
 {
 	public string batchFileName = "game.bat";
-	public string sceneName = "level0";
-	public bool transition = false;
-	public bool quit = false;
 	public bool showWindow = false;
 
 	private void Start()
@@ -29,13 +26,5 @@ public class bootgame : MonoBehaviour
 		Process process = new Process();
 		process.StartInfo = startInfo;
 		process.Start();
-		if (transition)
-		{
-			SceneManager.LoadScene(sceneName);
-		}
-		if (quit)
-        {
-			Application.Quit();
-		}
 	}
 }

@@ -44,14 +44,14 @@ public class CheckVideo : MonoBehaviour
         string path = Path.Combine(Application.streamingAssetsPath, "state.txt");
         using (StreamWriter sw = File.CreateText(path))
         {
-            sw.WriteLine("STEP 1=起動しています= ");
+            sw.WriteLine("STEP 1=Boot=false");
             sw.WriteLine("error=false");
             sw.Close();
         }
         string path1 = Path.Combine(Application.streamingAssetsPath, "install.txt");
         using (StreamWriter sw = File.CreateText(path1))
         {
-            sw.WriteLine(" ");
+            sw.WriteLine("");
             sw.Close();
         }
     }

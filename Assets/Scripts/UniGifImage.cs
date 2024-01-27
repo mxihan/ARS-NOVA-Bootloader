@@ -185,10 +185,6 @@ public class UniGifImage : MonoBehaviour
 
 	public void Clear()
 	{
-		if (m_rawImage != null)
-		{
-			m_rawImage.texture = null;
-		}
 		if (m_gifTextureList != null)
 		{
 			for (int i = 0; i < m_gifTextureList.Count; i++)

@@ -21,24 +21,41 @@ public class load : MonoBehaviour
 	private string configFilePath;
 	private string statusFilePath;
 	private string installFilePath;
+	private string cfgStateFilePath;
 
 	public bool ContinueRunning = true;
 	public string errorSceneName = "error";
 
 	public GameObject coverFrame;
 
+	public Image harunaIcon;
+	public Image displayStateIcon;
+
+	public Sprite harunaBad;
+	public Sprite harunaWarn;
+	public Sprite harunaOkA;
+	public Sprite harunaOkB;
+	public Sprite harunaOkC;
+	public Sprite harunaOkD;
+
+	public Sprite checkCvt;
+	public Sprite checkSp;
+	public Sprite modeCvt;
+	public Sprite modeSp;
+
 	private void Start()
 	{
 		configFilePath = Path.Combine(Application.streamingAssetsPath, "config.txt");
 		statusFilePath = Path.Combine(Application.streamingAssetsPath, "state.txt");
 		installFilePath = Path.Combine(Application.streamingAssetsPath, "install.txt");
+		cfgStateFilePath = Path.Combine(Application.streamingAssetsPath, "current_config.txt");
 		initText();
 		StartCoroutine(UpdateDisplay());
 	}
 
 	private void initText()
 	{
-		string[] array = File.ReadAllLines(statusFilePath);
+		string[] array = File.ReadAllLines(configFilePath);
 		string[] array2 = array;
 		foreach (string text in array2)
 		{
@@ -96,6 +113,7 @@ public class load : MonoBehaviour
 							string[] array5 = line.Split('=');
 							if (array5[1] == "true")
 							{
+								Time.timeScale = 1;
 								LoadErrorScene();
 							}
 						}
@@ -121,6 +139,76 @@ public class load : MonoBehaviour
 						installText.color = defaultColor;
 					}
 					installText.text = lastLine;
+				}
+			}
+			catch
+			{
+			}
+			// Use a StreamReader to read the file
+			try
+			{
+				using (StreamReader reader = new StreamReader(cfgStateFilePath))
+				{
+					string line;
+					while ((line = reader.ReadLine()) != null)
+					{
+						if (line.StartsWith("haruna"))
+						{
+							string[] array5 = line.Split('=');
+							if (array5.Length > 1)
+							{
+								string value = array5[1];
+								if (value == "false")
+								{
+									harunaIcon.overrideSprite = harunaBad;
+								}
+								else if (value == "true")
+								{
+									harunaIcon.overrideSprite = harunaWarn;
+								}
+								else if (value == "A")
+								{
+									harunaIcon.overrideSprite = harunaOkA;
+								}
+								else if (value == "B")
+								{
+									harunaIcon.overrideSprite = harunaOkB;
+								}
+								else if (value == "C")
+								{
+									harunaIcon.overrideSprite = harunaOkC;
+								}
+								else if (value == "D")
+								{
+									harunaIcon.overrideSprite = harunaOkD;
+								}
+							}
+						}
+						else if (line.StartsWith("sp_en"))
+						{
+							string[] array5 = line.Split('=');
+							if (array5.Length > 1)
+							{
+								string value = array5[1];
+								if (value == "found_cvt")
+								{
+									displayStateIcon.overrideSprite = checkCvt;
+								}
+								else if (value == "found_sp")
+								{
+									displayStateIcon.overrideSprite = checkSp;
+								}
+								else if (value == "true")
+								{
+									displayStateIcon.overrideSprite = modeSp;
+								}
+								else
+								{
+									displayStateIcon.overrideSprite = modeCvt;
+								}
+							}
+						}
+					}
 				}
 			}
 			catch
